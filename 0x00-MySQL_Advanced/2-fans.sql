@@ -1,8 +1,9 @@
--- Select the correct database
-USE holberton;
+-- First ensure that the nb_fans exist
+ALTER TABLE metal_bands
+ADD COLUMN nb_fans INT DEFAULT 0;
 
--- Creating a script that ranks country origins of bands
 
+-- Now select the origin and sum the nb_fans
 SELECT origin, SUM(nb_fans) AS nb_fans
 FROM metal_bands
 GROUP BY origin
